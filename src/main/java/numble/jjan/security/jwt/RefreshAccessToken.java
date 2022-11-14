@@ -1,5 +1,6 @@
 package numble.jjan.security.jwt;
 
+import io.swagger.annotations.ApiOperation;
 import numble.jjan.user.dto.UserDto;
 import numble.jjan.user.entity.User;
 import numble.jjan.user.service.UserService;
@@ -42,6 +43,7 @@ public class RefreshAccessToken {
 
 
     @PostMapping("/refreshAccessToken")
+    @ApiOperation(value = "refresh 토큰으로 검증 후 access 토큰 재발급")
     private ResponseEntity<?> getRefreshAccessToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         // 요청 헤더에서 refresh token 읽기
@@ -103,4 +105,6 @@ public class RefreshAccessToken {
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+
+
 }

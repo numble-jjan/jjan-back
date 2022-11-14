@@ -25,6 +25,10 @@ spring:
   profiles:
     include: oauth
 
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
 #  security:
 #    oauth2:
 #      client:
