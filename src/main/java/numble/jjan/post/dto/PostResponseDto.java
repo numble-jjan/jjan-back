@@ -10,6 +10,9 @@ public class PostResponseDto {
     private String title;
     private String content;
     private String location;
+    private Double latitude;
+    private Double longitude;
+
 
     public PostResponseDto(Post entity) {
         this.id = entity.getId();
@@ -17,5 +20,7 @@ public class PostResponseDto {
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.location = entity.getLocation();
+        this.latitude = entity.getLatitude();
+        this.longitude = entity.getLongitude();
     }
 }

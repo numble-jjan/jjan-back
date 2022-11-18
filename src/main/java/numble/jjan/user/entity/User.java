@@ -46,6 +46,8 @@ public class User extends BaseTimeEntity {
 
     private int status;
 
+    private String profileImgPath;
+
     @Builder
     public User(Long id, String email, String password, String name, String phone, String nickName, String address, Role role, int status) {
         this.id = id;

@@ -65,6 +65,16 @@ access:
   header:
     name: Access-Control-Allow-Origin
 
+save:
+  post_file:
+    path: /Users/deunsol/Documents/GitHub/jjan-backend/uploaded_file/post_file/
+  profile_file:
+    path: /Users/deunsol/Documents/GitHub/jjan-backend/uploaded_file/profile_file/
+
+file:
+  starts_with: image
+  mime_type_list: jpg,jpeg,png,gif
+
 logs:
   config:
     filePath: /Users/deunsol/Documents/GitHub/jjan-backend/logs
