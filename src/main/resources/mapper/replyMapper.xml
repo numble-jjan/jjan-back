@@ -17,28 +17,4 @@
 		 where r.post_id = ${postId}
 		 order by r.parent_id, id;
     </select>
-
-    <!-- 로그인 정보 저장 또는 업데이트 -->
-    <!-- <insert id="saveLoginInfo" parameterType="numble.jjan.user.entity.CurrentLogin">
-        insert into current_login (email, remote_addr, last_login_time, last_refresh_time, expiration_time_limit,
-                                   refresh_token)
-        values (#{email}, #{remoteAddr}, NOW(), NOW(), #{expirationTimeLimit}, #{refreshToken}) on duplicate key
-        update remote_addr = #{remoteAddr}, last_login_time = NOW(), last_refresh_time=NOW(), expiration_time_limit=#{expirationTimeLimit}, refresh_token=#{refreshToken}
-    </insert>-->
-
-    <!-- 토큰 만료 시간이 3시간 경과한 로그인 정보 삭제 -->
-    <!--<delete id="deleteExpireToken">
-        <![CDATA[
-        DELETE
-        from current_login 
-        WHERE DATE_ADD(last_refresh_time, INTERVAL (expiration_time_limit/1000 + 10800) SECOND) < NOW();
-        ]]>
-    </delete>-->
-
-    <!-- last_refresh_time -->
-    <!-- <update id="updateLastRefreshTime" parameterType="string">
-        update current_login
-        set last_refresh_time = NOW()
-        where email = #{email}
-    </update>-->
 </mapper>
