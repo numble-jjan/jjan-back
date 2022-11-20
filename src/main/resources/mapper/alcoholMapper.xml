@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="numble.jjan.alcohol.repository.AlcoholMapper">
+	<!-- 술 키워드 조회 -->
+    <select id="findAlcoholType" resultType="numble.jjan.alcohol.dto.AlcoholTypeReponseDto" parameterType="string">
+        select a.id,
+        	   a.name,
+        	   a.english_name as englishName
+		  from alcohol_type a;
+    </select>
+
+	
+	<!-- 술 전체 리스트 조회 -->
+    <select id="findAlcoholList" resultType="numble.jjan.alcohol.dto.AlcoholResponseDto" parameterType="string">
+        select a.id as id, 
+		       a.name as name,
+		       a.image as image
+		  from alcohol a 
+		 where 1 = 1
+		   <if test='type != null'>
+	       and a.type = #{type}
+ 		   </if>
+		  ;
+    </select>
+
+
+	<!-- 술 상세 정보 조회 -->
+    <select id="findAlcoholDetail" resultType="numble.jjan.alcohol.dto.AlcoholDetailResponseDto" parameterType="string">
+        select a.id as id, 
+		       a.name as name,
+		       a.image as image,
+		       a.description as description
+		  from alcohol a 
+		 where a.id = ${id};
+    </select>
+
+    <!-- 술 랜덤 조회 -->
+    <select id="findRandomAlcohol" resultType="numble.jjan.alcohol.dto.AlcoholResponseDto" parameterType="string">
+        select a.id as id, 
+		       a.name as name,
+		       a.image as image,
+		       a.description as description
+		  from alcohol a 
+		 order by rand() limit 1
+		;
+    </select>
+    
+    
+    <!-- 오늘의 술 조회 -->
+    <select id="findTodayAlcohol" resultType="numble.jjan.alcohol.dto.AlcoholResponseDto" parameterType="string">
+        select a.id as id, 
+		       a.name as name,
+		       a.image as image,
+		       a.description as description
+		  from alcohol a 
+		 order by rand() limit 1
+		;
+    </select>
+    
+</mapper>
